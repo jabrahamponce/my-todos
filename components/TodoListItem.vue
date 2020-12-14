@@ -11,7 +11,7 @@
           </p>
         </div>
         <div class="col-1 middle">
-          <input type="checkbox" class="form-check-input" checked="checked" />
+          <input class="form-check-input" type="checkbox" checked="checked" />
         </div>
         <!-- <div class="col-1 middle">
           Deletion will be implemented soon
