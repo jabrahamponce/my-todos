@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="col-md-9 col-sm-11 col-xs-11">
+    <div class="col-lg-10 col-md-11 col-sm-11 col-xs-11">
       <h1>My TODOs</h1>
       <br />
       <div>

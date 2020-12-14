@@ -6,9 +6,12 @@
           <h4>{{ title }}</h4>
         </div>
         <div class="col middle">
-          <p style="text-align: left">
+          <p style="text-align: center">
             {{ description }}
           </p>
+        </div>
+        <div class="col-1 middle">
+          <input type="checkbox" class="form-check-input" checked="checked" />
         </div>
         <!-- <div class="col-1 middle">
           Deletion will be implemented soon
