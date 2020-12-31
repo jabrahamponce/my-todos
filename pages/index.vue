@@ -35,8 +35,6 @@
         <br />
       </div>
       <TodoList :todo-items="ToDos" />
-      <!-- <p>ToDos array</p>
-      <p>{{ ToDos }}</p> -->
       <br /><br /><br /><br /><br />
     </div>
   </div>
@@ -51,7 +49,6 @@ export default {
       id: '',
       title: '',
       description: '',
-      isChecked: '',
     }
   },
   methods: {
@@ -60,8 +57,12 @@ export default {
         id: this.ToDos.length + 1,
         title: this.title,
         description: this.description,
-        isChecked: false,
       })
+      this.clearFields()
+    },
+    clearFields() {
+      this.title = ''
+      this.description = ''
     },
   },
 }
