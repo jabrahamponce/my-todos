@@ -51,9 +51,14 @@ export default {
       description: '',
     }
   },
+  computed: {
+    loadedTodos() {
+      return this.$store.getters.loadedPosts
+    },
+  },
   methods: {
     onSubmit() {
-      this.ToDos.push({
+      this.$store.dispatch('addTodo', {
         id: this.ToDos.length + 1,
         title: this.title,
         description: this.description,
