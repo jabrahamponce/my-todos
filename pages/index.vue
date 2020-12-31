@@ -34,7 +34,7 @@
         </form>
         <br />
       </div>
-      <TodoList :todo-items="ToDos" />
+      <TodoList :todo-items="loadedTodos" />
       <br /><br /><br /><br /><br />
     </div>
   </div>
@@ -46,20 +46,21 @@ export default {
   data() {
     return {
       ToDos: [],
-      id: '',
+      id: 0,
       title: '',
       description: '',
     }
   },
   computed: {
     loadedTodos() {
-      return this.$store.getters.loadedPosts
+      return this.$store.getters.loadedTodos
     },
   },
   methods: {
     onSubmit() {
+      this.id = this.id + 1
       this.$store.dispatch('addTodo', {
-        id: this.ToDos.length + 1,
+        id: this.id,
         title: this.title,
         description: this.description,
       })

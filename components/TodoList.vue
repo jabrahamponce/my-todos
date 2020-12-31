@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list-group">
-      <li class="list-group-item list-group-item-action">
+      <li class="list-group-item list-group-item-info">
         <div class="row">
           <div class="col-4 middle">
             <h4>Title</h4>
