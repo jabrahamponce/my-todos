@@ -11,7 +11,13 @@
           </p>
         </div>
         <div class="col-1 middle">
-          <input class="form-check-input" type="checkbox" checked="checked" />
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            @click="removeItem"
+          >
+            X
+          </button>
         </div>
         <!-- <div class="col-1 middle">
           Deletion will be implemented soon

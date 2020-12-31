@@ -9,9 +9,6 @@
           <div class="col middle">
             <p>Description</p>
           </div>
-          <div class="col-2 middle">
-            <p style="text-align: left">Done</p>
-          </div>
         </div>
       </li>
       <TodoListItem

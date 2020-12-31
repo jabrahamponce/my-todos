@@ -51,6 +51,7 @@ export default {
       id: '',
       title: '',
       description: '',
+      isChecked: '',
     }
   },
   methods: {
@@ -59,6 +60,7 @@ export default {
         id: this.ToDos.length + 1,
         title: this.title,
         description: this.description,
+        isChecked: false,
       })
     },
   },
@@ -77,5 +79,6 @@ export default {
 p {
   text-align: left;
   font-weight: bold;
+  margin-bottom: 0;
 }
 </style>
