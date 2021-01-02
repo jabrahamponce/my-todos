@@ -17,6 +17,7 @@
         :key="x.id"
         :title="x.title"
         :description="x.description"
+        @delete="alertId"
       />
     </ul>
   </div>
@@ -42,6 +43,13 @@ export default {
     todoItems: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    alertId(todoId) {
+      // This todoId parameter comes from TodoListItem
+      // alert(todoId)
+      this.$store.dispatch('removeTodo', todoId)
     },
   },
 }

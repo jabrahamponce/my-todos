@@ -55,7 +55,8 @@ export default {
   },
   methods: {
     removeItem() {
-      alert('Deletion will be implemented soon.')
+      // This value is being $emit-ted to be used in the TodoList.vue component
+      this.$emit('delete', this.id)
     },
   },
 }

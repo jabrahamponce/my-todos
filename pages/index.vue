@@ -58,13 +58,17 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.id = this.id + 1
-      this.$store.dispatch('addTodo', {
-        id: this.id,
-        title: this.title,
-        description: this.description,
-      })
-      this.clearFields()
+      if (this.title === '' || this.description === '') {
+        alert('Both fields need to have text.')
+      } else {
+        this.id = this.id + 1
+        this.$store.dispatch('addTodo', {
+          id: this.id,
+          title: this.title,
+          description: this.description,
+        })
+        this.clearFields()
+      }
     },
     clearFields() {
       this.title = ''
