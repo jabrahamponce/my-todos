@@ -44,7 +44,7 @@ export default {
     },
     editById(todoId) {
       // This todoId parameter comes from the TodoListItem component
-      alert(todoId)
+      // alert('Todo Edit functionality will be soon implemented. ', todoId)
       // this.$store.dispatch('removeTodo', todoId)
     },
   },

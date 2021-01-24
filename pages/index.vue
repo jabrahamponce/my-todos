@@ -85,7 +85,6 @@ export default {
 }
 p {
   text-align: left;
-  font-weight: bold;
   margin-bottom: 0;
 }
 .todoForm {

@@ -22,9 +22,9 @@
           <i class="bi-trash"></i>
         </button>
       </div>
-      <br /><br />
+      <br />
       <div>
-        <p style="text-align: center">
+        <p style="text-align: left">
           {{ description }}
         </p>
       </div>
