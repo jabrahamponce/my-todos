@@ -1,42 +1,42 @@
 <template>
-  <div class="container">
-    <div class="col-lg-10 col-md-11 col-sm-11 col-xs-11">
-      <h1>My TODOs</h1>
-      <br />
-      <div>
-        <form @submit.prevent="onSubmit">
-          <div class="row">
-            <div class="col">
-              <p>Title</p>
-              <input
-                v-model="title"
-                class="form-control"
-                aria-label="ToDo Title"
-              />
-            </div>
-            <div class="col">
-              <p>Description</p>
-              <input
-                v-model="description"
-                class="form-control"
-                aria-label="ToDo Description"
-              />
-            </div>
-          </div>
-          <br />
-          <button
-            class="btn btn-outline-success"
-            type="button"
-            @click="onSubmit"
-          >
-            Add ToDo
-          </button>
-        </form>
-        <br />
+  <div>
+    <h1 class="main-title">My TODOs</h1>
+    <br />
+    <form @submit.prevent="onSubmit">
+      <div class="col col-sm-8" style="display: block; margin: 0 auto">
+        <p style="text-align: center">Title</p>
+        <input v-model="title" class="form-control" aria-label="ToDo Title" />
       </div>
-      <TodoList :todo-items="loadedTodos" />
-      <br /><br /><br /><br /><br />
-    </div>
+      <div
+        class="col col-sm-8"
+        style="display: block; margin: 0 auto; margin-top: 10px"
+      >
+        <p style="text-align: center">Description</p>
+        <input
+          v-model="description"
+          class="form-control"
+          aria-label="ToDo Description"
+        />
+      </div>
+      <br />
+      <div style="text-align: center">
+        <button
+          class="btn btn-outline-success"
+          style="margin: 0 auto"
+          type="button"
+          @click="onSubmit"
+        >
+          Add ToDo
+        </button>
+      </div>
+    </form>
+    <br />
+    <TodoList
+      :todo-items="loadedTodos"
+      class="col col-sm-8"
+      style="margin: 0 auto"
+    />
+    <br /><br /><br /><br /><br />
   </div>
 </template>
 
@@ -79,17 +79,16 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main-title {
   text-align: center;
-  padding-top: 40px;
+  margin-top: 1em;
 }
 p {
   text-align: left;
   font-weight: bold;
   margin-bottom: 0;
+}
+.todoForm {
+  align-content: center;
 }
 </style>

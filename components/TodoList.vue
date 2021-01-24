@@ -1,23 +1,14 @@
 <template>
   <div>
     <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        <div class="row">
-          <div class="col-4 middle">
-            <h4>Title</h4>
-          </div>
-          <div class="col middle">
-            <p>Description</p>
-          </div>
-        </div>
-      </li>
       <TodoListItem
         v-for="x in todoItems"
         :id="x.id"
         :key="x.id"
         :title="x.title"
         :description="x.description"
-        @delete="alertId"
+        @delete="deleteById"
+        @edit="editById"
       />
     </ul>
   </div>
@@ -46,10 +37,15 @@ export default {
     },
   },
   methods: {
-    alertId(todoId) {
-      // This todoId parameter comes from TodoListItem
+    deleteById(todoId) {
+      // This todoId parameter comes from the TodoListItem component
       // alert(todoId)
       this.$store.dispatch('removeTodo', todoId)
+    },
+    editById(todoId) {
+      // This todoId parameter comes from the TodoListItem component
+      alert(todoId)
+      // this.$store.dispatch('removeTodo', todoId)
     },
   },
 }
