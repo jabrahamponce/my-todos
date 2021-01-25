@@ -9,7 +9,7 @@
           type="button"
           class="btn btn-small btn-outline-success btn-sm"
           style="display: inline"
-          @click="editItem"
+          @click="enableEditMode"
         >
           <i class="bi-pen"></i>
         </button>
@@ -27,6 +27,40 @@
         <p style="text-align: left">
           {{ description }}
         </p>
+      </div>
+      <div v-if="editedTodo.editMode">
+        <form @submit.prevent="onSubmit">
+          <div class="col col-sm-8" style="display: block; margin: 0 auto">
+            <p style="text-align: center">Title</p>
+            <input
+              v-model="editedTodo.editTitle"
+              class="form-control"
+              aria-label="ToDo Title"
+            />
+          </div>
+          <div
+            class="col col-sm-8"
+            style="display: block; margin: 0 auto; margin-top: 10px"
+          >
+            <p style="text-align: center">Description</p>
+            <textarea
+              v-model="editedTodo.editDescription"
+              class="form-control"
+              aria-label="ToDo Description"
+            />
+          </div>
+          <br />
+          <div style="text-align: center">
+            <button
+              class="btn btn-outline-success"
+              style="margin: 0 auto"
+              type="button"
+              @click="updateTodoInfo"
+            >
+              Update ToDo
+            </button>
+          </div>
+        </form>
       </div>
     </li>
   </div>
@@ -57,16 +91,25 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      editedTodo: {
+        editMode: false,
+      },
+    }
+  },
   methods: {
     removeItem() {
       // this.id is being $emit-ted to be used in the TodoList.vue component
       // Used as @delete="alertId"
       this.$emit('delete', this.id)
     },
-    editItem() {
-      // this.id is being $emit-ted to be used in the TodoList.vue component
-      // Used as @edit="alertId"
-      this.$emit('edit', this.id)
+    enableEditMode() {
+      // This method enables a todoItem to be edited.
+      this.editedTodo.editMode = !this.editedTodo.editMode
+    },
+    updateTodoInfo() {
+      this.$emit('edit', this.editedTodo)
     },
   },
 }

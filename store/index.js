@@ -20,12 +20,14 @@ const createStore = () => {
         })
         if (index !== -1) myArr.splice(index, 1)
       },
-      editTodo(state, todo) {
-        const todoIndex = state.loadedPosts.findIndex(
-          // Searching the index of a todo in the array. Will return true if found, or false otherwise
-          (post) => post.id === todo.id
-        )
-        state.todos[todoIndex] = todo
+      editTodo(state, editedTodo) {
+        // eslint-disable-next-line no-debugger
+        debugger
+        const myArr = state.todos
+        const index = myArr.findIndex(function (o) {
+          return o.id === editedTodo.todoId
+        })
+        if (index !== -1) state.loadedPosts[index] = editedTodo
       },
     },
     actions: {
@@ -38,7 +40,9 @@ const createStore = () => {
       removeTodo(vuexContext, todo) {
         vuexContext.commit('removeTodo', todo)
       },
-      editTodo(vuexContext, todo) {},
+      editTodo(vuexContext, editTodo) {
+        vuexContext.commit('editTodo', editTodo)
+      },
     },
     getters: {
       loadedTodos(state) {

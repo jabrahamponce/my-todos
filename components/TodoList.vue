@@ -8,7 +8,7 @@
         :title="x.title"
         :description="x.description"
         @delete="deleteById"
-        @edit="editById"
+        @edit="editTodo"
       />
     </ul>
   </div>
@@ -42,10 +42,8 @@ export default {
       // alert(todoId)
       this.$store.dispatch('removeTodo', todoId)
     },
-    editById(todoId) {
-      // This todoId parameter comes from the TodoListItem component
-      // alert('Todo Edit functionality will be soon implemented. ', todoId)
-      // this.$store.dispatch('removeTodo', todoId)
+    editTodo(todo) {
+      this.$store.dispatch('editTodo', todo)
     },
   },
 }
