@@ -28,12 +28,12 @@
           {{ description }}
         </p>
       </div>
-      <div v-if="editedTodo.editMode">
+      <div v-if="editMode">
         <form @submit.prevent="onSubmit">
           <div class="col col-sm-8" style="display: block; margin: 0 auto">
             <p style="text-align: center">Title</p>
             <input
-              v-model="editedTodo.editTitle"
+              v-model="editedTodo.title"
               class="form-control"
               aria-label="ToDo Title"
             />
@@ -44,13 +44,14 @@
           >
             <p style="text-align: center">Description</p>
             <textarea
-              v-model="editedTodo.editDescription"
+              v-model="editedTodo.description"
               class="form-control"
               aria-label="ToDo Description"
             />
           </div>
           <br />
           <div style="text-align: center">
+            {{ editedTodo }}
             <button
               class="btn btn-outline-success"
               style="margin: 0 auto"
@@ -93,8 +94,11 @@ export default {
   },
   data() {
     return {
+      editMode: false,
       editedTodo: {
-        editMode: false,
+        id: this.getId(),
+        title: '',
+        description: '',
       },
     }
   },
@@ -104,12 +108,23 @@ export default {
       // Used as @delete="alertId"
       this.$emit('delete', this.id)
     },
+    getId() {
+      return this.id
+    },
     enableEditMode() {
       // This method enables a todoItem to be edited.
-      this.editedTodo.editMode = !this.editedTodo.editMode
+      this.editMode = !this.editMode
     },
     updateTodoInfo() {
+      // this.title = this.editedTodo.title
+      // this.description = this.editedTodo.description
       this.$emit('edit', this.editedTodo)
+      this.enableEditMode()
+      this.$router.push('/')
+    },
+    clearForm() {
+      this.editedTodo.title = ''
+      this.editedTodo.description = ''
     },
   },
 }

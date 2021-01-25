@@ -22,12 +22,13 @@ const createStore = () => {
       },
       editTodo(state, editedTodo) {
         // eslint-disable-next-line no-debugger
-        debugger
         const myArr = state.todos
         const index = myArr.findIndex(function (o) {
-          return o.id === editedTodo.todoId
+          return o.id === editedTodo.id
         })
-        if (index !== -1) state.loadedPosts[index] = editedTodo
+        if (index !== -1) {
+          state.todos[index] = editedTodo
+        }
       },
     },
     actions: {
