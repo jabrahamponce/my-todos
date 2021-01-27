@@ -51,7 +51,6 @@
           </div>
           <br />
           <div style="text-align: center">
-            {{ editedTodo }}
             <button
               class="btn btn-outline-success"
               style="margin: 0 auto"
@@ -102,6 +101,7 @@ export default {
       },
     }
   },
+  computed: {},
   methods: {
     removeItem() {
       // this.id is being $emit-ted to be used in the TodoList.vue component
@@ -116,11 +116,17 @@ export default {
       this.editMode = !this.editMode
     },
     updateTodoInfo() {
-      // this.title = this.editedTodo.title
-      // this.description = this.editedTodo.description
       this.$emit('edit', this.editedTodo)
       this.enableEditMode()
-      this.$router.push('/')
+      // //////////////////////////////////////////
+      // //////// THIS SECTION NEEDS /////////////
+      // //////////////////////////////////////////
+      this.title = this.editedTodo.title
+      this.description = this.editedTodo.description
+      // //////////////////////////////////////////
+      // //////////// TO BE EDITED ////////////////
+      // //////////////////////////////////////////
+      this.clearForm()
     },
     clearForm() {
       this.editedTodo.title = ''

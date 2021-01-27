@@ -9,6 +9,8 @@
         :description="x.description"
         @delete="deleteById"
         @edit="editTodo"
+        @editedTitle="changeName"
+        @editedDescription="changeDescription"
       />
     </ul>
   </div>
@@ -38,9 +40,15 @@ export default {
   },
   methods: {
     deleteById(todoId) {
-      // This todoId parameter comes from the TodoListItem component
-      // alert(todoId)
       this.$store.dispatch('removeTodo', todoId)
+    },
+    changeName(nameToChange) {
+      // eslint-disable-next-line no-console
+      console.log(nameToChange)
+    },
+    changeDescription(descToChange) {
+      // eslint-disable-next-line no-console
+      console.log(descToChange)
     },
     editTodo(todo) {
       this.$store.dispatch('editTodo', todo)
