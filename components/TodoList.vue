@@ -13,7 +13,7 @@
     </ul>
     <div v-else>
       <h2 style="text-align: center; color: #006666; margin-top: 2em">
-        The list is empty :( <br /><br />
+        The list is empty :( <br />
         Start by adding todos above! :)
       </h2>
     </div>

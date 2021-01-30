@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img src="~/assets/banner.png" style="width: 100%" />
     <h1 class="main-title">My TODOs</h1>
     <br />
     <form @submit.prevent="onSubmit">
