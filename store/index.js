@@ -21,7 +21,6 @@ const createStore = () => {
         if (index !== -1) myArr.splice(index, 1)
       },
       editTodo(state, editedTodo) {
-        // eslint-disable-next-line no-debugger
         const myArr = state.todos
         const index = myArr.findIndex(function (o) {
           return o.id === editedTodo.id

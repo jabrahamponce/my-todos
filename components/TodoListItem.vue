@@ -101,7 +101,6 @@ export default {
       },
     }
   },
-  computed: {},
   methods: {
     removeItem() {
       // this.id is being $emit-ted to be used in the TodoList.vue component
@@ -118,14 +117,10 @@ export default {
     updateTodoInfo() {
       this.$emit('edit', this.editedTodo)
       this.enableEditMode()
-      // //////////////////////////////////////////
       // //////// THIS SECTION NEEDS /////////////
-      // //////////////////////////////////////////
       this.title = this.editedTodo.title
       this.description = this.editedTodo.description
-      // //////////////////////////////////////////
       // //////////// TO BE EDITED ////////////////
-      // //////////////////////////////////////////
       this.clearForm()
     },
     clearForm() {
